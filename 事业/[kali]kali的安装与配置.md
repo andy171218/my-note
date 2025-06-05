@@ -94,20 +94,21 @@ ls 中文目录名  # 若有中文文件/目录可测试显示
 ### 字体图标大小
 
 **图标大小**
-[图标大小](../pictures/2/icon-size.png)
+
+![图标大小](../pictures/2/icon-size.png)
 
 **状态栏**
-[状态栏](../pictures/2/bar-size.png)
+![状态栏](../pictures/2/bar-size.png)
 
 **系统字体**
-[系统字体](../pictures/2/sys-size.png)
+![系统字体](../pictures/2/sys-size.png)
 
 **终端字体**
-[终端字体](../pictures/2/ter-size.png)
+![终端字体](../pictures/2/ter-size.png)
 
 **输入法字体**
-[输入法字体](../pictures/2/shru-size.png)@ss
+![输入法字体](../pictures/2/shru-size.png)@ss
 
 ### 锁屏时间
 
-[锁屏时间](../pictures/2/scrennlocktime.png)
+![锁屏时间](../pictures/2/scrennlocktime.png)

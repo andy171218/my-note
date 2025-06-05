@@ -34,9 +34,9 @@ sudo sh Ventoy2Disk.sh -i -s /dev/sdb
 
 📌 重要选项：
 
-- -i 强制安装（覆盖旧版）
-- -r SIZE_MB 保留空间（如 -r 4096 保留 4GB）
-- -s 启用安全启动支持
+- `-i` 强制安装（覆盖旧版）
+- `-r` SIZE_MB 保留空间（如 -r 4096 保留 4GB）
+- `-s` 启用安全启动支持
 
 ## 添加 ISO
 
