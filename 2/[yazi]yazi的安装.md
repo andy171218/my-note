@@ -24,21 +24,6 @@ sudo apt install -y cargo pkg-config libssl-dev libxcb-shape0 libxcb-xfixes0
 ```bash
 # 通过 cargo 安装
 cargo install --locked yazi-fm
-
-# 如果编译失败，尝试以下方法之一：
-
-# 方法A：从源码构建
-git clone https://github.com/sxyazi/yazi.git
-cd yazi
-cargo build --release
-sudo cp target/release/yazi /usr/local/bin/
-
-# 方法B：使用预编译二进制
-wget https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.tar.gz
-tar -xvf yazi-*.tar.gz
-chmod +x yazi
-sudo mv yazi /usr/local/bin/
-
 ```
 
 ## 5. 验证安装
