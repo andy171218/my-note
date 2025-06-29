@@ -164,8 +164,9 @@ Write-Host "Scoop update completed" -ForegroundColor Green
 # 4. Install all packages
 $apps = @(
     "main/7zip",
-    "main/chezmoi",
+    "main/fd",
     "main/fzf",
+    "main/neovim",
     "main/lf",
     "main/oh-my-posh",
     "main/pwsh",
@@ -178,7 +179,10 @@ $apps = @(
     "spc/openspeedy",
     "spc/pixpin",
     "spc/potplayer",
-    "spc/baidudisk"
+    "spc/baidudisk",
+    "spc/Sandboxie-Classic",
+    "spc/wechat",
+    "spc/qbittorrent"
 )
 
 foreach ($app in $apps) {
