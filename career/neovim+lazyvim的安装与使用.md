@@ -1,0 +1,178 @@
+## 安装neovim
+
+```shell
+scoop install neovim
+```
+
+
+
+## 安装lazyvim
+
+**备份**
+
+```shell
+# required
+Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
+
+# optional but recommended
+Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
+```
+
+
+
+**克隆配置文件**
+
+```shell
+git clone https://github.com/LazyVim/starter $env:LOCALAPPDATA\nvim
+```
+
+
+
+**去掉.git**
+
+```shell
+Remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force ```
+
+**打开nvim**
+
+```shell
+nvim
+```
+
+
+
+## 基础
+
+`h`:左
+
+`l`:右
+
+`j`:下
+
+`k`:上
+
+
+
+## 模式切换
+
+
+
+### 普通模式(NORMAL)
+
+`w`:按单词向后移动
+
+`b`:按单词向前移动
+
+`f+字符`:跳转到指定字符
+
+`s+前缀`:跳转到指定前缀
+
+`]`:next(跳转到下一个..)
+
+`[`:prev(跳转到上一个..)
+
+`shift+>>`:缩进
+
+`shift+<<`:取消缩进
+
+`gg`:文章开头
+
+`shift+g`:文章末尾
+
+`gc`:注释
+
+`d`:删除
+
+`diw`:删除整个单词
+
+`ciw`:删除整个单词后进入插入模式
+
+`cc`:删除整行进入插入模式
+
+`dd`:删除整行
+
+`u`:撤销
+
+`ctrl+r`:撤销撤销
+
+`y`:复制
+
+`yy`:复制整行
+
+`数字+yy`:复制对应行数
+
+`x`:剪切
+
+`p`:粘贴
+
+`ctrl+u`:向上翻页
+
+`ctrl+d`:向下翻页
+
+
+
+## 插入模式
+
+`i`:在光标前面插入
+
+`a`:在光标后面插入
+
+
+
+## 选中模式(v)
+
+`vi(`:选中()中的所有内容
+
+`vi{`:选中{}中的所有内容
+
+`vi"`:选中""中的所有内容
+
+`shift+v`:选中整行
+
+
+
+## 命令模式(:)
+
+`:w`:保存
+
+`:q`:退出
+
+`:wq`:保存并退出
+
+`qa`:退出全部(询问你是否保存)
+
+`q!`:强制退出(不保存)
+
+
+
+## 文件操作(super:空格)
+
+`super+e`:打开侧边栏
+
+`ctrl+h/l`:移动焦点
+
+`shift+h`:打开隐藏文件
+
+`ctrl+/`:打开终端
+
+`shfit+h/l`:切换tab
+
+`super+b+d`:删除buffer(关闭tab)
+
+`super+super`:fzf(查找文件)
+
+`r`:改名字
+
+`a`:创建文件(文件夹/)
+
+`d`:删除文件
+
+
+
+## 插件管理
+
+:LazyExtras  打开插件页面
+
+选择打开或关闭:x
+
+重启neovim安装插件
