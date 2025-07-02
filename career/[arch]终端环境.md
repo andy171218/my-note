@@ -67,18 +67,20 @@ TERM = "xterm-256color"
 
 ### shell配置
 
+#### nerd-font安装
+
+```bash
+yay -S ttf-agave-nerd
+```
+
+#### bash
+
 **oh-my-bash的安装**
 
 ```bash
 git clone https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
 cp ~/.oh-my-bash/templates/bashrc.osh-template ~/.bashrc
 source ~/.bashrc
-```
-
-**nerd-font安装**
-
-```bash
-yay -S ttf-agave-nerd
 ```
 
 **.bashrc的配置**
@@ -128,3 +130,5 @@ source ~/.bashrc
 ```bash
 uninstall_oh_my_bash
 ```
+
+
