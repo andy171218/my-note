@@ -1,6 +1,4 @@
-很高兴你使用 Windows 10 + Scoop + PowerShell 7 + Vim 这套强大的开发环境！让我来指导你如何将 Windows Terminal 和 Oh My Posh 整合进来，打造一个更强大的终端环境。
-
-
+终端环境:windows-terminal+pwsh+oh-my-posh
 
 ### 1. 安装 Windows Terminal
 
