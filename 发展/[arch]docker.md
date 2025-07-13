@@ -49,6 +49,80 @@ sudo nvim /etc/docker/daemon.json
 sudo systemctl restart docker
 ```
 
+**docker使用kali**
+
+
+```bash
+# 启动
+docker run -it kalilinux/kali-rolling /bin/bash
+
+# 更新
+apt update
+
+# 修改源
+nvim /etc/apt/sources.list
+
+# 把第一行注释掉
+#阿里云
+deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+
+apt update && apt upgrade
+
+# 需要什么装什么
+apt install xxx
+
+# 列出镜像(关注ID)
+docker ps -a
+
+# 启动镜像
+docker start ID
+
+# 回到镜像
+docker attach ID
+
+# 保存
+docker commit ID 名称
+
+```
+
+**docker使用blackarch**
+
+```bash
+# 安装
+docker pull blackarchlinux/blackarch
+
+# 启动
+docker run -it blackarchlinux/blackarch /bin/bash
+
+# 配置
+
+nvim /etc/pacman.conf
+
+# 将NoProgressBar注释掉​​
+
+# 镜像源
+nvim /etc/pacman.d/blackarch-mirrorlist 
+
+Server = https://mirrors.aliyun.com/blackarch/$repo/os/$arch
+
+# 安装blackarch-keyring
+pacman -Sy blackarch-keyring
+
+# 更新
+pacman -Syyu
+
+# 安装软件
+pacman -S nmap
+
+# 复制本地到docker
+# 将本地文件复制到正在运行的容器中
+docker cp /path/to/local/file container_name:/path/in/container
+
+# 示例：将本地的 test.txt 复制到容器的 /tmp 目录
+docker cp ~/test.txt my_container:/tmp/
+```
+
 **常用命令**
 
 ```bash

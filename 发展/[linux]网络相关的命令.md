@@ -1,0 +1,5 @@
+nmtui
+
+iwctl
+
+ip a
