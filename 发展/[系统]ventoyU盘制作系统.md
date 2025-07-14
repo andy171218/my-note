@@ -1,7 +1,5 @@
 Ventoy 是一款开源工具，可用于创建可启动的 USB 驱动器，支持直接从 ISO 文件启动而无需解压。
 
-
-
 ## windows上使用ventoy
 
 ### **1. 下载 Ventoy**

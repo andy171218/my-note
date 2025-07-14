@@ -1,46 +1,3 @@
-## 安装neovim
-
-```shell
-scoop install neovim
-```
-
-
-
-## 安装lazyvim
-
-**备份**
-
-```shell
-# required
-Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
-
-# optional but recommended
-Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
-```
-
-
-
-**克隆配置文件**
-
-```shell
-git clone https://github.com/LazyVim/starter $env:LOCALAPPDATA\nvim
-```
-
-
-
-**去掉.git**
-
-```shell
-Remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force ```
-
-**打开nvim**
-
-```shell
-nvim
-```
-
-
-
 ## 基础
 
 `h`:左
@@ -166,13 +123,3 @@ nvim
 `a`:创建文件(文件夹/)
 
 `d`:删除文件
-
-
-
-## 插件管理
-
-:LazyExtras  打开插件页面
-
-选择打开或关闭:x
-
-重启neovim安装插件

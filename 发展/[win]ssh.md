@@ -1,12 +1,8 @@
 在 Windows 系统中使用 SSH 可以通过以下几种方式实现，具体取决于你的 Windows 版本和需求：
 
-
-
 ### **1. 使用内置的 OpenSSH 客户端（Windows 10/11 推荐）**
 
 Windows 10（1809 版本后）和 Windows 11 已内置 OpenSSH 客户端，无需安装第三方工具。
-
-
 
 ### **步骤：**
 
@@ -27,8 +23,6 @@ Windows 10（1809 版本后）和 Windows 11 已内置 OpenSSH 客户端，无�
 
 - 将公钥（id_rsa.pub）内容添加到服务器的 ~/.ssh/authorized_keys 文件。
 - 使用 -i 指定私钥： ssh -i C:\path\to\private_key username@hostname 
-
-
 
 ### **2. 使用 Windows Terminal（可选）**
 

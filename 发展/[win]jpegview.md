@@ -1,7 +1,5 @@
 jpegview 是一个轻量级的开源图片查看器，专门为 Windows 系统设计。它支持多种图片格式，包括 JPEG、PNG、GIF、BMP 等，并且具有快速加载和简洁界面的特点。以下是关于 jpegview 的一些关键信息：
 
-
-
 ### 主要特点
 
 1. **轻量快速**：启动和加载图片速度极快，占用系统资源少。
@@ -10,17 +8,13 @@ jpegview 是一个轻量级的开源图片查看器，专门为 Windows 系统�
 4. **格式支持**：JPEG、PNG、GIF、BMP、TIFF 等常见格式。
 5. **快捷键操作**：支持键盘快捷键提升操作效率。
 
-
-
 ### 安装方式（通过 Scoop）
 
 如果你使用 Scoop 包管理器，可以通过以下命令安装 jpegview：
 
-```
+```shell
 scoop install jpegview
 ```
-
-
 
 ### 常用操作
 
@@ -29,8 +23,6 @@ scoop install jpegview
 - **旋转**：Ctrl + ←/→。
 - **全屏**：F 键。
 - **退出**：Esc 或 Q 键。
-
-
 
 ### 配置
 
