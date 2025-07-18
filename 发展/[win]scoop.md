@@ -31,7 +31,7 @@ scoop bucket add spc https://gitee.com/wlzwme/scoop-proxy-cn.git
 # 拉取新库地址
 scoop update
 
-# 安装软件
+# 导出软件&导入软件
 scoop export > ~\scoop_apps.txt 
 scoop import ~\scoop_apps.txt
 ```
