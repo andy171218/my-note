@@ -144,10 +144,15 @@ sdk current
 ### 软件
 
 ```zsh
+# 常用工具
 yay -S archlinuxcn-keyring base base-devel blackarch-keyring docker docker-compose git neovim oh-my-zsh-git openssh yay zsh
 
 # 开启ssh
 sudo systemctl enable --now sshd
+
+# 黑客工具
+yay -S nmap aircrack-ng hydra
+
 ```
 
 

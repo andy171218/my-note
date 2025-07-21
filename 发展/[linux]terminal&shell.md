@@ -66,7 +66,7 @@ chsh -s $(which zsh)  # 修改默认 shell
 ```zsh
 sudo pacman -S oh-my-zsh-git # 安装
 whereis oh-my-zsh # 找到oh-my-zsh文件夹
-
+# /usr/share/oh-my-zsh
 # 复制zshrc到~/.zhsrc
 
 # 安装命令提示插件
