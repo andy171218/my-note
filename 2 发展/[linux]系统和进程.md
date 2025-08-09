@@ -18,6 +18,7 @@ free -h
 
 # 显示磁盘使用情况 (df = disk free)
 df -h  # -h 人类可读格式
+df -ih # -h 人类可读格式 -i 查看inode空间
 
 # 系统优化
 # 显示系统信息 (uname = unix name)

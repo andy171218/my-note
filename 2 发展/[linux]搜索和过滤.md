@@ -1,5 +1,3 @@
-
-
 ### 管道
 
 管道符号：`|`，可以将前面指令的执行结果，作为后面指令的操作内容。
@@ -183,10 +181,50 @@ sed 's/^foo/bar/' file.txt
 
 ```zsh
 # 按列过滤
-# 打印出第一列的内容
-awk '{print $1}' 1.txt
-# 指定分隔符打印
-awk -F ',' '{print $1}' 1.txt
+# 基本语法
+awk '模式 {动作}' 文件名
+
+# 打印列
+# 打印第1列和第3列
+awk '{print $1, $3}' file.txt
+# 打印最后一列
+awk '{print $NF}' file.txt
+
+# 指定分隔符
+# 使用逗号分隔（默认是空格/制表符）
+awk -F',' '{print $2}' data.csv
+# 使用正则表达式作为分隔符（如冒号或空格）
+awk -F'[: ]' '{print $1, $3}' file.txt
+
+
+# NR 当前行号	
+awk 'NR==3 {print}' file
+# NF 当前行的列数	
+awk '{print NF}' file
+# FS 输入字段分隔符（默认空格）	
+awk 'BEGIN{FS=":"} {...}'
+# OFS 输出字段分隔符（默认空格）	
+awk 'BEGIN{OFS=";"} {...}'
+# FILENAME 当前文件名	
+awk '{print FILENAME}'
+
+# 条件过滤
+# 打印第2列大于100的行
+awk '$2 > 100 {print $0}' file.txt
+# 打印包含 "error" 的行
+awk '/error/ {print}' file.txt
+# 打印第3列等于 "apple" 的行
+awk '$3 == "apple" {print $1, $2}' file.txt
+
+# 正则表达式
+# 打印以 "A" 开头的行
+awk '/^A/ {print}' file.txt
+# 打印第2列匹配数字的行
+awk '$2 ~ /[0-9]+/ {print}' file.txt
+
+# 多文件处理
+# 处理多个文件，并打印文件名
+awk '{print FILENAME, $0}' file1.txt file2.txt
 ```
 
 
