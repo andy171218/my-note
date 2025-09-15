@@ -1,10 +1,327 @@
+# win10
+
+
+
+## 激活
+
+```shell
+# 打开powershell
+irm utools.run/win | iex
+# 选择4激活->自动打开cmd
+# 在cmd中
+# 选择1直接激活windows，看需求可以选择别的
+```
+
+
+
+## 配置
+
+```zsh
+开始栏（个性化：图标，应用列表）->任务栏（图标，输入法：中文输入英文标点）->桌面（图标，壁纸）->文件管理器（快速访问）->弹窗（控制面板->系统安全->安全维护->更改账户控制设置->从不通知）->通知（关闭通知）->浏览器（图标，其他都同步即可）->多任务设置（alt+tab仅打开窗口）->删除无用软件（系统软件:只留下edge+中文（简体）本体体验包）->windows更新一下（然后暂停更新）
+```
+
+
+
+
+
+# wsl2
+
+
+
+WSL2（Windows Subsystem for Linux 2）是微软开发的第二代Windows Linux子系统，它允许你在Windows 10/11中原生运行Linux环境。以下是关键点：
+
+
+
+## 核心特点
+
+- 完整Linux内核：基于微软定制的Linux 4.19内核
+- 虚拟机架构：使用轻量级Hyper-V虚拟机（性能损失<1%）
+- 100%系统调用兼容：可直接运行Docker等原生Linux应用
+
+
+
+## 如何开启
+
+win+s搜索：启用或关闭windows功能->Hyper-v&适用于linux的子系统&虚拟机平台
+
+![启用或关闭windows功能](assets/启用或关闭windows功能.png)
+
+![启动1](assets/启动1.png)
+
+![启动2](assets/启动2.png)
+
+**然后重启**
+
+
+
+## 如何使用
+
+打开powershell
+
+```shell
+# 管理员权限:更新一下（很重要！）
+wsl --update --web-download
+# 将wsl的版本设定为2
+wsl --set-default-version 2
+# wsl版本
+wsl --version
+# 查看可安装的linux发行版
+wsl --list --online
+# 查看已安装的linux发行版
+wsl --list -v
+
+# 例子:安装archlinux
+wsl --install archlinux --web-download
+# 切换默认系统为archlinux
+wsl --set-default archlinux
+
+# 启动
+wsl -d archlinux
+# 退出
+exit
+
+# 删除系统
+wsl --unregister archlinux
+
+# 导出(备份)
+wsl --export archlinux C:\Users\andy1\Downloads\archlinux.tar
+# 导入(系统名字 保存路径 压缩包)
+wsl --import archlinux D:/wsl archlinux.tar
+```
+
+---
+
+可以安装这些linux发行版：
+
+![发行版](assets/发行版.png)
+
+
+
+
+
+# Terminal&Shell
+
+
+
+## 安装配置
+
+```zsh
+# 终端环境: windows-terminal+pwsh+oh-my-posh
+
+# 安装terminal
+scoop install windows-terminal
+
+# 安装oh-my-posh
+scoop install oh-my-posh
+
+# 安装pwsh(powershell7)
+scoop install pwsh
+
+# 字体安装
+oh-my-posh font install meslo
+
+oh-my-posh 官网：https://ohmyposh.dev/docs
+
+# 启动输入法：英文拼音-> 默认 shell：pwsh-> 启动居中 外观：字体（MesloLGL Nerd Font Mono）-> 配色（Dark+）-> 透明度（80%）-> 拖动条（隐藏）
+```
+
+
+
+## 打开编辑文件
+
+```zsh
+# 创建/编辑配置文件
+notepad C:\Users\andy1\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+```
+
+
+
+## 编写配置文件
+
+```zsh
+Set-PSReadLineOption -BellStyle None            # 关闭提示音
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete  # 增强 Tab 补全
+
+# --------------------------
+# 别名/快捷命令
+# --------------------------
+# ====== Scoop 命令别名 ======
+# 安装应用
+function sin { scoop install $args }
+# 卸载应用
+function su { scoop uninstall $args }
+# 更新所有应用
+function sup { scoop update * }
+# 搜索应用
+function ss { scoop-search $args } 
+# 查看应用信息
+function sinfo { scoop info $args }
+# 清理缓存
+function scr { scoop cache rm * }
+# 列出已安装应用
+function sli { scoop list }
+# 重置应用（修复损坏的安装）
+function sre { scoop reset $args }
+# 添加仓库
+function sba { scoop bucket add $args }
+# 列出仓库
+function sbl { scoop bucket list }
+# 删除仓库
+function sbr { scoop bucket rm $args }
+# 统计应用数量
+function stotal { (scoop list | Measure-Object).Count }
+
+# --------------------------
+# 环境变量扩展
+# --------------------------
+$env:EDITOR = "nvim" # 默认编辑器
+
+# --------------------------
+# 安全防护
+# --------------------------
+$ConfirmPreference = "High"       # 高危操作需确认
+Set-ExecutionPolicy RemoteSigned  # 仅允许签名的远程脚本
+
+# --------------------------
+# Oh My Posh
+# --------------------------
+# 启用 Oh My Posh
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_lean.omp.json" | Invoke-Expression
+
+# 设置终端字体（需手动在终端设置中选择）
+```
+
+
+
+## **成果**
+
+
+
+![img](.\assets\v2-0e90a15e83812688bf6f6be658b110bf_720w.png)
+
+
+
+# scoop
+
+
+
+## scoop的安装
+
+```shell
+# 普通用户下，打开powershell
+# 脚本执行策略更改，默认自动同意
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser -Force
+
+# 执行安装命令（默认安装在用户目录下，如需更改请执行“自定义安装目录”命令）
+iwr -useb scoop.201704.xyz | iex
+
+# 更换scoop的repo地址
+scoop config SCOOP_REPO "https://gitee.com/scoop-installer/scoop"
+# 安装git
+scoop install git
+# 添加 bucket，默认拉取 sync 分支
+scoop bucket add spc https://gitee.com/wlzwme/scoop-proxy-cn.git
+# 只需要一个main一个spc大概就可以了
+
+# 拉取新库地址
+scoop update
+
+# 导出软件&导入软件
+scoop export > ~\scoop_apps.txt 
+scoop import ~\scoop_apps.txt
+```
+
+
+
+## 常用命令
+
+```shell
+# 软件管理
+
+scoop install <app> 安装软件
+scoop uninstall <app> 卸载软件
+scoop update <app> 更新特定软件
+scoop update * 更新所有已安装软件
+scoop list 列出已安装软件
+
+# 更新pwsh
+Get-Process pwsh
+Stop-Process -Id 5904 -Force 
+scoop update pwsh
+
+# 搜索软件
+# 使用 scoop-search(scoop搜索)
+scoop install scoop-search
+scoop-search git
+
+# 系统维护
+
+scoop update 更新 Scoop 自身
+scoop status 检查更新状态
+scoop checkup 检查系统问题
+scoop cleanup <app> 清理旧版本
+scoop cleanup * 清理所有旧版本
+scoop reset <app> 重置软件配置
+
+# 例子：Git 错误
+
+scoop install git
+scoop reset git
+
+# Bucket 管理
+
+scoop bucket list # 列出所有 buckets
+scoop bucket add <name> [repo] # 添加 bucket
+scoop bucket rm <name> # 删除 bucket
+scoop bucket known # 查看官方已知 buckets
+
+# 高级功能
+
+scoop cache show 查看缓存
+scoop cache rm <app> 删除缓存
+scoop hold <app> 阻止软件更新
+scoop unhold <app> 取消阻止更新
+scoop export 导出安装列表
+scoop import <file> 从列表安装
+
+# 配置命令
+
+scoop config 查看配置
+scoop config <key> <value> 设置配置
+scoop config rm <key> 删除配置
+```
+
+
+
+# win软件
+
+
+
+## Jpegview
+
+### 配置
+
+**打开不全屏:** 设定/管理->编辑使用者设定->查找:ShowFullScreen->将auto改成false
+
+![img](.\assets\v2-34f0cebdd85c0a707a7efafc4b3b061e_720w.png)
+
+
+
+![img](.\assets\v2-46e14f7ca8b534d251b899f2667bf2ae_720w.png)
+
+
+
+# 高阶操作
+
 ## 文件和目录
 
 
 
 ### 数据和程序
 
+```zsh
 在我们电脑或者手机上，除了硬件之外，可以说还剩两样内容，一个是数据，一个是程序，软件就是程序，安装到你电脑或者手机上的其实就是程序员写好的各种程序代码文件，运行这个软件就是运行这些代码，这些代码就是于算机的指令，而我门使用这些软件的功能时自已添加、修改等操作的内容，就是数据，而数据保存在文件中。比如word是程序、doc文件是数据，专门的程序对应着专门的文件数据。所以我们计算机上所有的东西都是程序+数据。数据或者说文件可以复制给其他人，只要他电脑上安装了相应的程序即可打开操作。
+```
 
 
 
@@ -14,20 +331,26 @@
 
 #### 文本文件
 
+```zsh
 文本其实就是我们的数据，主要是记录文字信息，文本文件就是存放数据的文件，常见的文本文件格式有：txt文件、md文件、xls和xlsx、doc和docx、pdf、ppt、htm和html等等。其中txt文件是纯正的文本文件，其他的都是可以带有一些特殊格式的，这些呢我们有时候也称之为文档格式。
 关于文本文档，我们后面还会说到，因为有些木马病毒就是基于这些文档传播的。
+```
 
 
 
 #### 程序文件
 
+```zsh
 可以运行的文件，里面有程序代码，双击就能打开运行，不管他是用来安装某个程序的，还是来启动某个程序的，我们都叫做程序文件。windows上程序文件扩展名为exe。
+```
 
 
 
 #### dll文件
 
+```zsh
 **DLL文件**（Dynamic Link Library，动态链接库）是Windows系统中的共享库文件，包含可由多个程序同时调用的代码、数据和资源（如图标、字体等）。其核心作用是**模块化功能**，允许程序在运行时动态加载所需模块，而非静态编译到主程序中。这种设计显著节省内存（多个程序共享同一DLL）、简化更新（替换DLL即可升级功能），但也可能引发“DLL地狱”问题（版本冲突导致程序崩溃）。常见的系统DLL如`kernel32.dll`（核心API）、`user32.dll`（界面相关），开发者也可用C/C++/Rust等语言编写自定义DLL。在Linux中类似`.so`文件，macOS中则为`.dylib`。加密算法,用户名,密码加密文件
+```
 
 
 

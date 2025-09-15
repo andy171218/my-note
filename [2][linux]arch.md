@@ -10,9 +10,13 @@ pacman -Sy archinstall
 archinstall
 ```
 
+
+
 ### 换源
 
-**换国内镜像源**
+
+
+#### **换国内镜像源**
 
 ```bash
 # 打开配置文件
@@ -29,7 +33,10 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 sudo pacman -Syyu
 ```
 
-**添加非官方源**
+
+
+#### **添加非官方源**
+
 ```bash
 # 打开配置文件
 sudo nvim /etc/pacman.conf
@@ -44,19 +51,25 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ```
 
-**导入 archlinuxcn key**
+
+
+#### **导入 archlinuxcn key**
 
 ```bash
 sudo pacman -Sy archlinuxcn-keyring
 ```
 
-**安装yay  base-devel**
+
+
+#### **安装yay  base-devel**
 
 ```bash
 sudo pacman -Sy yay base-devel
 ```
 
-**blackarch**
+
+
+#### **blackarch**
 
 ```zsh
 curl -O https://blackarch.org/strap.sh
@@ -74,8 +87,6 @@ Server = https://mirrors.aliyun.com/blackarch/$repo/os/$arch
 
 
 ### 环境
-
-
 
 ```zsh
 sudo pacman -S nvm rustup uv
@@ -174,6 +185,8 @@ zh_CN.UTF-8 UTF-8
 
 sudo locale-gen
 ```
+
+
 
 #### 安裝输入法
 

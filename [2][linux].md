@@ -1,9 +1,43 @@
-## shell简介
+# shell
+
+
 
 Shell：蛋壳的意思，是linux中比较重要的一个概念，所有的命令其实都称之为shell命令。
 看图解：shell就是内核的一个外壳，用户通过shell来控制内核进而驱动硬件做事情，这是它名字的由来。Linux下，没有shell的话，就不能控制这个计算机了，因为内核是用户不能直接控制的。
 
 ![image-20250725201947726](assets/image-20250725201947726.png)
+
+
+
+## zsh
+
+```zsh
+# 安装zsh
+sudo pacman -S zsh
+
+echo $SHELL # 查看当前shell
+chsh -s $(which zsh)  # 修改默认 shell
+
+# 安装nerd-font
+yay -S ttf-agave-nerd
+
+# 安装oh-my-zsh
+sudo pacman -S oh-my-zsh-git
+whereis oh-my-zsh # 找到oh-my-zsh文件夹
+# /usr/share/oh-my-zsh
+# 复制zshrc到~/.zhsrc
+
+# 安装命令提示插件
+cd /usr/share/oh-my-zsh/plugins
+git clone git@github.com:zsh-users/zsh-autosuggestions.git
+git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
+
+# 配置
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+# 使得配置文件生效
+source ~/.zshrc
+```
 
 
 
@@ -78,4 +112,96 @@ ctr1+u #删除从光标到行首的所有字符
 ctr1+r #搜索历史命令，利用关键字搜索
 ctr1+w #光标往前删除一个参数，以空格为分割。
 ```
+
+
+
+# 发行版
+
+
+
+## arch
+
+
+
+
+
+## kali
+
+
+
+
+
+# 命令
+
+
+
+## pacman&yay
+
+### -S
+
+```bash
+# 强行刷新一遍再更新
+sudo pacman -Syyu
+yay -Syyu
+
+# 安装软件
+sudo pacman -S 软件名
+yay -S 软件名
+
+# 搜索
+sudo pacman -Ss 软件名
+yay -Ss 软件名
+
+# 清理缓存
+sudo pacman -Sc
+yay -Sc
+```
+
+### -R
+
+```bash
+# 删除软件及其依赖，和全局配置文件
+sudo pacman -Rns
+yay -Rns
+
+# 删除不再需要的依赖
+sudo pacman -Rns $(pacman -Qdtq)
+yay -Rns $(pacman -Qdtq)
+```
+
+### -Q
+
+```bash
+# 查询所有安装的软件
+sudo pacman -Q
+yay -Q
+
+# 查询安装了多少个软件
+sudo pacman -Q | wc -l
+yay -Q | wc -l
+
+# 查询自己安装的软件
+sudo pacman -Qe
+yay -Qe
+
+# 查询自己安装了多少个软件
+sudo pacman -Qe | wc -l
+yay -Qe | wc -l
+
+# 整理自己安装的软件
+sudo pacman -Qeq
+yay -Qeq
+
+# 查询具体软件
+sudo pacman -Qs 软件名
+yay -Qs 软件名
+
+# 查询不再需要的软件依赖
+sudo pacman -Qdt
+yay -Qdt
+```
+
+
+
+## apt
 
