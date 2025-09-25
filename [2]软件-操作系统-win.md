@@ -237,7 +237,6 @@ scoop import ~\scoop_apps.txt
 
 ```shell
 # 软件管理
-
 scoop install <app> 安装软件
 scoop uninstall <app> 卸载软件
 scoop update <app> 更新特定软件
@@ -255,28 +254,24 @@ scoop install scoop-search
 scoop-search git
 
 # 系统维护
-
 scoop update 更新 Scoop 自身
 scoop status 检查更新状态
 scoop checkup 检查系统问题
 scoop cleanup <app> 清理旧版本
 scoop cleanup * 清理所有旧版本
-scoop reset <app> 重置软件配置
+scoop reset <app> 重置软件配置(更新版本)
 
 # 例子：Git 错误
-
 scoop install git
 scoop reset git
 
 # Bucket 管理
-
 scoop bucket list # 列出所有 buckets
 scoop bucket add <name> [repo] # 添加 bucket
 scoop bucket rm <name> # 删除 bucket
 scoop bucket known # 查看官方已知 buckets
 
 # 高级功能
-
 scoop cache show 查看缓存
 scoop cache rm <app> 删除缓存
 scoop hold <app> 阻止软件更新
@@ -285,7 +280,6 @@ scoop export 导出安装列表
 scoop import <file> 从列表安装
 
 # 配置命令
-
 scoop config 查看配置
 scoop config <key> <value> 设置配置
 scoop config rm <key> 删除配置

@@ -339,22 +339,10 @@ Server = https://mirrors.aliyun.com/blackarch/$repo/os/$arch
 ### 环境
 
 ```zsh
-sudo pacman -S nvm rustup uv
+yay -S nvm rustup
 
 # rustup(默认工具链)
 rustup default stable
-
-# uv
-
-# 安装python
-uv pyhton list
-uv python install 版本
-
-# 临时运行文件
-uv run -p 3.13 xx.py
-
-# 安装依赖
-uv pip install xxx
 
 # nvm
 echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
